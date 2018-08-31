@@ -1,0 +1,43 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-image:url("../htmlcssjs/weather.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        p {
+            white-space: pre;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+</head>
+<body>
+<div ng-app="weather" ng-controller="weatherctrl">
+    <input type="text" ng-model="query.s" name="s" placeholder="enter state code">
+    <input type="text" ng-model="query.c" name="c" placeholder="enter city name">
+
+    <button id="btn" ng-click="getWeather()"> Show Weather </button>
+    <br/>
+    <br/>
+    <div ng-repeat="weather in weathers | limitTo :5" style="color: white">
+        <p>{{weather.FCTTIME.hour}}:{{weather.FCTTIME.min}}   {{weather.temp.english}} Fahrenheit   <span><img ng-src="{{weather.icon_url}}"/></span> </p></div>
+
+<script>
+    angular.module('weather',[])
+        .controller('weatherctrl', function($scope, $http) {
+            $scope.getWeather = function()
+            {
+                var url ='http://api.wunderground.com/api/4bbbc25f4f5946dd/hourly/q/'+$scope.query.s+'/'+$scope.query.c+'.json';
+                $http.get(url).success(function(data) {
+                    console.log(data.hourly_forecast);
+                    $scope.weathers = data.hourly_forecast;
+
+                }).error(function(data, status, headers, config) {
+                alert(status + ' ' + data);
+            });
+    }
+    });
+</script>
+</body>
+</html>
