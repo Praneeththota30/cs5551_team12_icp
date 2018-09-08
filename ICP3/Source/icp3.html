@@ -1,0 +1,53 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            background-color: coral;
+            background-size: cover;
+        }
+        h1 {
+            color: white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+</head>
+<body>
+<div class="text-center" ng-app="Recipe" ng-controller="Recipectrl">
+    <input type="text" ng-model="item" name="s" placeholder="enter item name">
+
+
+    <button id="btn" ng-click="getRecipe()"> Show Calories and grams </button>
+    <br/>
+    <br/>
+
+    <div ng-repeat="x in calculation" style="color: white">
+        <h1>Calories:</h1>  <h2>{{x.fields.nf_calories}}</h2></div>
+    <div ng-repeat="x in calculation" style="color:white">
+        <h1>Serving weight in grams:</h1>      <h2> {{x.fields.nf_serving_weight_grams}}</h2></div>
+
+
+
+    <script>
+        angular.module('Recipe',[])
+            .controller('Recipectrl', function($scope, $http) {
+                $scope.getRecipe = function()
+                {
+                    var wURL ='https://stream.watsonplatform.net/text-to-speech/api/v1/' +
+                        'synthesize?username=f61d1286-72ec-4d67-a0a2-16969a62acac&password=4AmGC8jSSy5G&text=' + $scope.item;
+                    var mySound = new Audio(wURL);
+                    mySound.play();
+                    var url ='https://api.nutritionix.com/v1_1/search/' +$scope.item+ '%E2%80%9CYour%20search%20term%E2%80%9D?results=0:1&fields=*&appId=142298ec&appKey=4a4c1fcfa8dc6d21f75aacb489623a32';
+                    $http.get(url).success(function(data) {
+                        console.log(data.hits);
+                        $scope.calculation = data.hits;
+
+                    }).error(function(data, status, headers, config) {
+                        alert(status + ' ' + data);
+                    });
+                }
+            });
+    </script>
+</body>
+</html>
