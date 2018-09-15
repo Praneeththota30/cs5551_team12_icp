@@ -1,0 +1,7 @@
+#Fri Sep 14 19:17:34 CDT 2018
+base.0=C\:\\Users\\prane\\Downloads\\TranslateApp\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_d6026ec74d0d04cf05963aac143cec3240fb51bb
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\prane\\Downloads\\TranslateApp\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_acca4ab0ff62ae13304b6bfbc8503a1a4ae9f4fa\\classes.dex
+base.1=C\:\\Users\\prane\\Downloads\\TranslateApp\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_acca4ab0ff62ae13304b6bfbc8503a1a4ae9f4fa
+file.0=C\:\\Users\\prane\\Downloads\\TranslateApp\\TranslateApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_d6026ec74d0d04cf05963aac143cec3240fb51bb\\classes.dex

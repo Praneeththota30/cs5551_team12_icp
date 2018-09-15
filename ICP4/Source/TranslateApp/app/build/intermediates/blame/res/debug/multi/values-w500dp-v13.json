@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "C:\\Users\\prane\\Downloads\\TranslateApp\\TranslateApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w500dp-v13\\values-w500dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "C:\\Users\\prane\\.android\\build-cache\\c46378b958f8b394d5aa122b3aff9cc85ac3888c\\output\\res\\values-w500dp-v13\\values-w500dp-v13.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 54,
+                        "endOffset": 105
+                    }
+                }
+            }
+        ]
+    }
+]
