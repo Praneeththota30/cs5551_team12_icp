@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Numbers API</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Required Imports -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <!-- Required Import for Data Binding -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body style="background-color: lightblue">
+
+<div  ng-controller="NamesCtrl" class="container" ng-app="numbersApp">
+    <h2 align="absolute" style="text-align: center; background-color: midnightblue; color:white">What's the speciality of the date?</h2 align="absolute">
+    <div style="text-align:center">
+    <div class="form-group">
+        <label>Month</label>
+        <input type="text" id="month" placeholder="Enter month in number"/>
+    </div>
+    <div class="form-group">
+        <label>Date&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" id="date" placeholder="Enter the date in number"/>
+    </div>
+    </div>
+    <div style="text-align: center;">
+    <button class="btn-primary" style="background-color: midnightblue" ng-click="getNumbersInfo()" >Click to know the Importance of the date</button>
+    <br/><br/>
+
+
+    <p class="error" id="fielderror" ng-bind-html="fielderrorhtml" style="color:red"></p>
+    <p id="output" style="display:none;margin-left: 8.0em"><strong>{{output}}</strong></p>
+</div>
+</div>
+
+
+</body>
+</html>
