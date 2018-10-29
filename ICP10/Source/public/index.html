@@ -1,0 +1,86 @@
+
+<html ng-app="demoMongo" ng-controller="MongoRestController">
+<head >
+    <title>Registration Details</title>
+    <link href="css/newStyle.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="https://code.angularjs.org/1.1.1/angular.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.1.1/angular-resource.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+    <script>
+        var myapp = angular.module('demoMongo',[]);
+        myapp.run(function ($http) {
+            // Sends this header with any AJAX request
+            $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+            // Send this header only in post requests. Specifies you are sending a JSON object
+            $http.defaults.headers.post['dataType'] = 'json'
+        });
+        myapp.controller('MongoRestController',function($scope,$http){
+            $scope.insertData = function(){
+                var dataParams = {
+                    'firstName' : $scope.firstName,
+                    'lastName' : $scope.lastName,
+                    'emailId' : $scope.emailId,
+                    'password' : $scope.password
+                };
+                var config = {
+                    headers : {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                    }
+                }
+                var req = $http.post('/registration/create',$scope.formData);
+                req.success(function(data, status, headers, config) {
+                    $scope.message = data;
+                    console.log(data);
+                    alert(" Details are added to Database ");
+                });
+                req.error(function(data, status, headers, config) {
+                    alert( "failure message: " + JSON.stringify({data: data}));
+                });
+            };
+        });
+    </script>
+
+</head>
+<body>
+<h1 style="text-align: center">Registration form for health Inspector</h1>
+<div style="width: 100%" align="center">
+    <h2>Enter User Details</h2>
+    <form class="container" style="align-self: center;width: 50%; background-color: lightgray"
+          ng-submit="insertData()" >
+                    <label for="firstName" style="color: black"><b>FirstName</b></label>
+                    <input type="text" id="firstName" name="firstName"
+                           placeholder="Enter your firstName" ng-model="formData.firstName" required >
+
+        <label for="lastName" style="color: black"><b>LastName</b></label>
+        <input type="text" id="lastName" name="lastName"
+               placeholder="Enter your lastName" ng-model="formData.lastName" required >
+
+        <label for="email" style="color: black"><b>EmailId</b></label>
+        <input type="text" id="email" name="email"
+               placeholder="Enter your emailId" ng-model="formData.email" required >
+
+        <label for="password" style="color: black"><b>Password</b></label>
+        <input type="password" id="password" name="password"
+               placeholder="Enter the Password" ng-model="formData.password" required >
+
+        <input type="submit" value="Create">
+        </form>
+    </div>
+</div>
+</div>
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
